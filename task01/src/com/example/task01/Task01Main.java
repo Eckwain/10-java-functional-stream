@@ -23,7 +23,11 @@ public class Task01Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-        return null; // your implementation here
+        // Проверка на null аргументы
+        if (condition == null || ifTrue == null || ifFalse == null) {
+            throw new NullPointerException("All arguments must be non-null");
+        }
 
+        return t -> condition.test(t) ? ifTrue.apply(t) : ifFalse.apply(t);
     }
 }
